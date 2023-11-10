@@ -1,0 +1,55 @@
+<mat-card>
+  <mat-card-content>{{ title }}</mat-card-content>
+</mat-card>
+
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+      <mat-card class="game-card">
+        <div class="image-container">
+          <img mat-card-image src="https://images.hdqwalls.com/wallpapers/overwatch-2-game-heroes-4k-ee.jpg" alt="Overwatch 2">
+        </div>
+        <div class="button-container">
+          <button mat-raised-button class="overlay-button" color="warn" (click)="openSnackBar('Overwatch 2')">
+            Overwatch 2
+          </button>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card class="game-card">
+        <div class="image-container">
+          <img mat-card-image src="https://www.heypoorplayer.com/wp-content/uploads/2017/06/dyd1.jpg" alt="Dead by Daylight">
+        </div>
+        <div class="button-container">
+          <button mat-raised-button class="overlay-button" color="warn" (click)="openSnackBar('Dead by Daylight')">
+            Dead by Daylight
+          </button>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card class="game-card">
+        <div class="image-container">
+          <img mat-card-image src="https://i.ytimg.com/vi/juufLmsLYUE/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGH8gMChbMA8=&rs=AOn4CLAOcALfz29oXDoAxSRI3JzT00ZO7g" alt="World of Warcraft">
+        </div>
+        <div class="button-container">
+          <button mat-raised-button class="overlay-button" color="warn" (click)="openSnackBar('World of Warcraft')">
+            World of Warcraft
+          </button>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card class="game-card">
+        <div class="image-container">
+          <img mat-card-image src="https://images.wallpapersden.com/image/download/diablo-4-demon-lilith_a2xpbm2UmZqaraWkpJRnaWVlrWZlbWU.jpg" alt="Diablo IV">
+        </div>
+        <div class="button-container">
+          <button mat-raised-button class="overlay-button" color="warn" (click)="openSnackBar('Diablo IV')">
+            Diablo IV
+          </button>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
