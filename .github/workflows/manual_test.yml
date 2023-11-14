@@ -1,0 +1,43 @@
+name: Test2
+
+on: [workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: |
+        npm install
+        npm install selenium-webdriver
+
+    - name: Start the app
+      run: npm start &
+
+    - name: Wait for the app to start
+      run: sleep 30  # Adjust the sleep duration based on your app's startup time
+
+    - name: Run tests
+      run: npm test
+
+    - name: Submit results to Testmo
+      run: |
+        npx testmo automation:run:submit \
+          --instance "$TESTMO_URL" \
+          --project-id 1 \
+          --name "New Test Run" \
+          --source "unit-tests" \
+          --results results/*.xml \
+          -- npm test
+      env:
+        TESTMO_URL: ${{ secrets.TESTMO_URL }}
+        TESTMO_TOKEN: ${{ secrets.TESTMO_TOKEN }}

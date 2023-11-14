@@ -1,40 +1,28 @@
-const chai = require('chai');
-const assert = chai.assert;
+const { Builder, By, until } = require('selenium-webdriver');
+const assert = require('assert');
 
-describe('files', function () {
-    describe('export', function () {
-        it('should export pdf', function () {
-            assert.isTrue(true);
-        });
+describe('Button Click Test', function() {
+  let driver;
 
-        it('should export html', function () {
-            assert.isTrue(true);
-        });
+  before(async function() {
+    driver = await new Builder().forBrowser('chrome').build();
+  });
 
-        it('should export yml', function () {
-            assert.isTrue(true);
-        });
+  it('should click the "Overwatch 2" button', async function() {
+    await driver.get('http://localhost:4200'); // replace 'your-app-port' with your app's port
 
-        it('should export text', function () {
-            assert.isTrue(true);
-        });
-    });
+    // Locate the button based on its text content and surrounding structure
+    const button = await driver.findElement(
+      By.xpath("//mat-card[contains(mat-card-content, 'Overwatch 2')]//button[contains(@class, 'overlay-button')]")
+    );
 
-    describe('import', function () {
-        it('should import pdf', function () {
-            assert.isTrue(true);
-        });
+    // Click the button
+    await button.click();
 
-        it('should import html', function () {
-            assert.isTrue(true);
-        });
+    // Add assertions or further actions if needed
+  });
 
-        it('should import yml', function () {
-            assert.isTrue(true);
-        });
-
-        it('should import text', function () {
-            assert.isTrue(true);
-        });
-    });
+  after(async function() {
+    await driver.quit();
+  });
 });
