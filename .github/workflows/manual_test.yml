@@ -36,7 +36,7 @@ jobs:
           --project-id 1 \
           --name "New Test Run" \
           --source "unit-tests" \
-          --results results/*.xml \
+          --results "results/*.xml" \
           -- npm test
       env:
         TESTMO_URL: ${{ secrets.TESTMO_URL }}
